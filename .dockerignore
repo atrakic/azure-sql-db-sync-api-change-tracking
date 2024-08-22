@@ -1,0 +1,15 @@
+# directories
+.vscode/
+**/bin/
+**/obj/
+**/out/
+
+
+# files
+.env
+**/docker-compose*
+**/*.yml
+**/*.db
+Makefile*
+Dockerfile*
+**/*.md

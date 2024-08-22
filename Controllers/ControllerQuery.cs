@@ -23,7 +23,8 @@ namespace AzureSamples.AzureSQL.Controllers
             _config = config;
         }
 
-        protected async Task<JsonElement> Query(string verb, Type entity, int? id = null, JsonElement payload = default(JsonElement))
+        protected async Task<JsonElement> Query(string verb, Type entity, int? id = null, 
+            JsonElement payload = default(JsonElement))
         {
             JsonDocument result = null;
 
