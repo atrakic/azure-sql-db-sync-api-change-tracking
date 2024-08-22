@@ -34,7 +34,7 @@ namespace AzureSamples.AzureSQL.Controllers
             }
 
             string entityName = entity.Name.Replace("Controller", string.Empty).ToLower();
-            string procedure = $"web.{verb}_{entityName}";
+            string procedure = $"dbo.{verb}_{entityName}";
             _logger.LogDebug($"Executing {procedure}");
 
             using(var conn = new SqlConnection(_config.GetConnectionString("DefaultConnection"))) {
