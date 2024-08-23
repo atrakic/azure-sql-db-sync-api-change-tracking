@@ -1,15 +1,6 @@
-if user_id('DotNetWebApp') is null begin
-    create user DotNetWebApp with password = 'a987REALLY#$%TRONGpa44w0rd!';
-end
-go
-
-if schema_id('web') is null begin
-    execute('create schema web')
-end
-go
-
 DROP DATABASE IF EXISTS demo;
 GO
+
 CREATE DATABASE demo;
 PRINT 'Creating demo database ...';
 GO
@@ -28,7 +19,6 @@ GO
 
 USE [demo]
 GO
-
 
 if not exists(select * from sys.sequences where [name] = 'Ids')
 begin

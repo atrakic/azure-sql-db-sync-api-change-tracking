@@ -2,7 +2,12 @@
 # chmod +x
 set -eo pipefail
 
-curl -H "fromVersion: 0" localhost:5000/api/v1/training-session/sync
+steps=$(( ( RANDOM % 10000 )  + 1 ))
+distance=$(( ( RANDOM % 10000 )  + 1 ))
+date=$(date +"%Y-%m-%d %T")
 
-#id=$(( ( RANDOM % 10000 )  + 1 ))
-#docker exec -it db /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "${MSSQL_SA_PASSWORD}" -Q "update dbo.TrainingSessions set Steps = $id where Id = 13" -b
+docker exec -it db sqlcmd \
+    -S localhost -U sa -P "${MSSQL_SA_PASSWORD}" \
+    -Q "SET NOCOUNT ON; update demo.dbo.TrainingSessions set Distance='$distance',Steps='$steps',RecordedOn='$date' where Id=3;" -b
+
+curl -H "fromVersion: 0" localhost:5000/api/v1/training-session/sync

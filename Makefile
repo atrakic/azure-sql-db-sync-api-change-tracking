@@ -19,8 +19,8 @@ test:
 	./tests/test.sh
 
 clean:
-	docker-compose down --remove-orphans -v --rmi local
 	dotnet clean
 	rm -rf ./{bin,obj}
+	docker-compose down --remove-orphans -v --rmi local
 
 -include .env

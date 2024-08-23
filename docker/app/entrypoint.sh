@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-set -o pipefail
+#set -o pipefail
   
 API_PORT=${API_PORT:-80}
 HOST=${HOST:-api}
